@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chato's Ceviche</title>
+</head>
+<body>
+    <img src="chatos.png" alt="logo" height="300"/> <br> <br>
+    <h1>Ann Arbor pop-up restaurant serving Peruvian inspired cuisine.</h1> <br> <br>
+    <p>
+        You are on your way home from the union after a long day of assignments and emails. You are hungry but lately the dining hall has just not been hitting like it used to...
+    </p> <br> 
+    <p><b>DING!</b></p> <br>
+    <img src="text_exchange.jpg" alt="text exchange" height="400"> <br> <br>
+    <p>Yes! A delicious home cooked meal made by your best friend Chato! The only problem is the recipe. You found the list of ingredients in your notes app, but the recipe is nowhere to be found! You mostly remember how the recipe goes, but not exactly when to use each ingredient. Fill in the blanks of the recipe and send it over to Chato to get the location and time of Chato's Cevicheria!</p> <br>
+    <div class="container">
+        <img src="ingredients.jpg" alt="ingredients" height="400" style='float: left;' margin= "50"/>
+        <div>
+            <h2>Step 1</h2>
+            <div  class="row" id="step1">
+                <label for="redOnion">Thinly slice your </label>
+                <input type="text" class="form-control input" id="redOnion">
+                <label for="chile"> and </label>
+                <input type="text" class="form-control input" id="chile">
+                <label>.</label>
+            </div>
+            <div  class="row" id="step2">
+                <label for="fish">Cut your </label>
+                <input type="text" class="form-control input" id="fish">
+                <label> into bite size pieces.</label>
+            </div>
+            <h2>Step 2</h2>
+            <div  class="row" id="step2">
+                <label for="salt">Add sliced ingredients to a large bowl. Season with </label>
+                <input type="text" class="form-control input" id="salt">
+                <label for="pepper">and </label>
+                <input type="text" class="form-control input" id="pepper">
+                <label>.</label>
+            </div>
+            <h2>Step 3</h2>
+            <div  class="row" id="step3">
+                <label for="lime">Squeeze enough </label>
+                <input type="text" class="form-control input" id="lime">
+                <label> juice into the bowl to submerge all ingredients.</label>
+            </div>
+            <h2>Step 4</h2>
+            <div  class="row" id="step4">
+                <label for="cilantro">Let ingredients soak for at least 30 min. Garnish with </label>
+                <input type="text" class="form-control input" id="cilantro">
+                <label> and serve!</label>
+            </div>
+        </div>
+    </div>
+    
+    <br> <br>
+    
+    <button onclick="testRecipe()" > Send Recipe </button>
+    <h1 id="returnTxt" > </h1>
+
+    <style>
+        body {background-color: antiquewhite ; color: aliceblue; margin: 5%; text-align: center;}
+        h1 {color: crimson;}
+        h2 {color: crimson;}
+        p {color: crimson;}
+        label {color: crimson;}
+        button {color: crimson;}
+        img {align-items: center;}
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 20px;
+        }
+    </style>
+
+    <script>
+        function testRecipe() {
+            let redOnion = document.querySelector("#redOnion").value;
+            let redOnionCheck = "red onion";
+            let chile = document.querySelector("#chile").value;
+            let chileCheck = "chiles";
+            let fish = document.querySelector("#fish").value;
+            let fishCheck = "fish";
+            let salt = document.querySelector("#salt").value;
+            let saltCheck = "salt";
+            let pepper = document.querySelector("#pepper").value;
+            let pepperCheck = "pepper";
+            let lime = document.querySelector("#lime").value;
+            let limeCheck = "lime";
+            let cilantro = document.querySelector("#cilantro").value;
+            let cilantroCheck = "cilantro";
+
+
+            let returnTxt = document.querySelector("#returnTxt");
+            
+
+            if (
+                (((redOnion == redOnionCheck) && (chile == chileCheck)) || ((redOnion == chileCheck) && (chile == redOnionCheck))) &&
+                (fish == fishCheck) &&
+                (((salt == saltCheck) && (pepper == pepperCheck)) || ((salt == pepperCheck) && (pepper == saltCheck))) &&
+                (lime == limeCheck) &&
+                (cilantro == cilantroCheck)
+            ) {
+                returnTxt.innerHTML = "Correct! Time and location not set yet. Check back soon!";
+            } else {
+                returnTxt.innerHTML = "Not quite right, try again!";
+            }
+        }
+    </script>
+    
+</body>
+</html>
